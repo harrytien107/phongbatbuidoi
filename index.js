@@ -1,7 +1,7 @@
 import jsonfile from 'jsonfile';
 import moment from 'moment';
 import simpleGit from 'simple-git';
-import { Random } from 'random';
+import random from 'random';
 
 const path = './data.json';
 
@@ -20,7 +20,7 @@ const markCommit = async (date) => {
     await git.commit(date.toISOString()), { '--date': date.toISOString() };
 };
 
-const makeCommits = async () => {
+const makeCommits = async (n) => {
     const git = simpleGit();
 
     for (let i=0; i < n; i++) {
@@ -42,4 +42,4 @@ const makeCommits = async () => {
     await git.push();
 };
 
-makeCommits(50000);
+makeCommits(100);
